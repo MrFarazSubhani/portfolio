@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spice Garden — Authentic Desi Food | Order on WhatsApp</title>
+<meta name="description" content="Spice Garden restaurant — biryani, karahi, BBQ and more. View our menu and order directly on WhatsApp.">
+<style>
+  :root {
+    --green:#14352a; --green-deep:#0d261e; --cream:#faf6ef; --gold:#d9a441;
+    --ink:#22271f; --muted:#6b7266; --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink);line-height:1.6}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  header{background:var(--green);color:#fff;text-align:center;padding:60px 20px 70px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;bottom:-30px;left:0;right:0;height:60px;background:var(--cream);border-radius:50% 50% 0 0}
+  .brand{font-size:2.4rem;letter-spacing:.12em;text-transform:uppercase}
+  .brand em{color:var(--gold);font-style:normal}
+  header p{color:#cfe0d6;margin-top:8px;font-style:italic}
+  .hours{margin-top:18px;display:inline-block;border:1px solid rgba(255,255,255,.25);padding:6px 18px;border-radius:999px;font-size:.9rem;color:#cfe0d6}
+
+  nav{display:flex;justify-content:center;gap:26px;padding:18px 0;flex-wrap:wrap}
+  nav a{color:var(--green);text-decoration:none;font-weight:700;text-transform:uppercase;font-size:.82rem;letter-spacing:.08em}
+  nav a:hover{color:var(--gold)}
+
+  .menu{padding:30px 0 10px}
+  .menu h2, .about h2{text-align:center;font-size:1.7rem;color:var(--green);margin-bottom:6px}
+  .menu .sub{text-align:center;color:var(--muted);margin-bottom:34px;font-style:italic}
+  .cat{margin-bottom:36px;scroll-margin-top:80px}
+  .cat h3{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:.95rem;border-bottom:2px solid var(--green);padding-bottom:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:baseline}
+  .cat h3 span{color:var(--muted);font-size:.75rem;letter-spacing:.02em;text-transform:none}
+  .items{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+  .item{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px dashed #d8d2c4}
+  .item .n{font-weight:700}
+  .item .n small{display:block;font-weight:400;color:var(--muted);font-size:.8rem;font-style:italic}
+  .item .p{color:var(--green);font-weight:700;white-space:nowrap}
+
+  .about{padding:46px 0;background:var(--green-deep);color:#dfe9e2;text-align:center}
+  .about h2{color:#fff}
+  .about p{max-width:640px;margin:14px auto 0;font-style:italic;color:#b8c9bf}
+
+  .cta{padding:56px 0;text-align:center}
+  .cta h2{color:var(--green);font-size:1.8rem;margin-bottom:8px}
+  .cta p{color:var(--muted);margin-bottom:26px}
+  .wa{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#fff;text-decoration:none;font-weight:700;padding:16px 34px;border-radius:999px;font-family:Arial,sans-serif;font-size:1.05rem;box-shadow:0 8px 22px rgba(37,211,102,.35)}
+  .wa:hover{transform:translateY(-2px)}
+
+  .info{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 0 56px;text-align:center}
+  .info div{background:#fff;border:1px solid #e6e0d2;border-radius:12px;padding:20px 14px}
+  .info b{display:block;color:var(--green);margin-bottom:4px}
+  .info span{color:var(--muted);font-size:.92rem}
+
+  footer{background:var(--green);color:#9fb8ab;text-align:center;padding:22px;font-size:.85rem}
+
+  @media(max-width:640px){
+    .items{grid-template-columns:1fr}
+    .info{grid-template-columns:1fr}
+    .brand{font-size:1.8rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Spice <em>Garden</em></div>
+  <p>Authentic desi food · Fresh daily · Since 1998</p>
+  <div class="hours">Open daily · 12:00 PM – 12:00 AM</div>
+</header>
+
+<nav class="wrap">
+  <a href="#starters">Starters</a>
+  <a href="#bbq">BBQ</a>
+  <a href="#karahi">Karahi</a>
+  <a href="#rice">Rice & Biryani</a>
+  <a href="#drinks">Drinks</a>
+</nav>
+
+<div class="menu wrap">
+  <h2>Our Menu</h2>
+  <p class="sub">Fresh ingredients, traditional recipes, honest prices</p>
+
+  <div class="cat" id="starters">
+    <h3>Starters <span>for sharing</span></h3>
+    <div class="items">
+      <div class="item"><span class="n">🍲 Chicken Corn Soup<small>classic, comforting</small></span><span class="p">Rs. 350</span></div>
+      <div class="item"><span class="n">🥟 Vegetable Samosa (4 pc)<small>crispy, homemade</small></span><span class="p">Rs. 200</span></div>
+      <div class="item"><span class="n">🫓 Platter of Pakoras<small>seasonal vegetables</small></span><span class="p">Rs. 320</span></div>
+      <div class="item"><span class="n">🧅 Onion Bhaji<small>with mint chutney</small></span><span class="p">Rs. 250</span></div>
+    </div>
+  </div>
+
+  <div class="cat" id="bbq">
+    <h3>BBQ <span>charcoal grilled</span></h3>
+    <div class="items">
+      <div class="item"><span class="n">🍗 Chicken Tikka<small>our signature masala</small></span><span class="p">Rs. 550</span></div>
+      <div class="item"><span class="n">🍖 Seekh Kebab (4 pc)<small>minced beef, herbs</small></span><span class="p">Rs. 650</span></div>
+      <div class="item"><span class="n">🍢 Malai Boti<small>cream-marinated chicken</small></span><span class="p">Rs. 700</span></div>
+      <div class="item"><span class="n">🥩 Beef Bihari Kebab<small>tender, smoky</small></span><span class="p">Rs. 850</span></div>
+    </div>
+  </div>
+
+  <div class="cat" id="karahi">
+    <h3>Karahi <span>cooked to order · 25 min</span></h3>
+    <div class="items">
+      <div class="item"><span class="n">🍛 Chicken Karahi (half)<small>tomato-ginger base</small></span><span class="p">Rs. 1,200</span></div>
+      <div class="item"><span class="n">🍛 Chicken Karahi (full)<small>serves 3–4</small></span><span class="p">Rs. 2,200</span></div>
+      <div class="item"><span class="n">🍲 Mutton Karahi (half)<small>desi ghee, bone-in</small></span><span class="p">Rs. 1,900</span></div>
+      <div class="item"><span class="n">🍲 Mutton Karahi (full)<small>serves 3–4</small></span><span class="p">Rs. 3,600</span></div>
+    </div>
+  </div>
+
+  <div class="cat" id="rice">
+    <h3>Rice & Biryani <span>with raita & salad</span></h3>
+    <div class="items">
+      <div class="item"><span class="n">🍚 Chicken Biryani<small>single serving</small></span><span class="p">Rs. 450</span></div>
+      <div class="item"><span class="n">🍚 Beef Biryani<small>single serving</small></span><span class="p">Rs. 500</span></div>
+      <div class="item"><span class="n">🍛 Chicken Pulao<small>aromatic yakhni</small></span><span class="p">Rs. 420</span></div>
+      <div class="item"><span class="n">🟢 Palak Paneer + Roti<small>vegetarian option</small></span><span class="p">Rs. 550</span></div>
+    </div>
+  </div>
+
+  <div class="cat" id="drinks">
+    <h3>Drinks & Dessert</h3>
+    <div class="items">
+      <div class="item"><span class="n">🥤 Fresh Lime Soda<small>sweet / salted</small></span><span class="p">Rs. 150</span></div>
+      <div class="item"><span class="n">🥛 Mango Lassi<small>thick & creamy</small></span><span class="p">Rs. 250</span></div>
+      <div class="item"><span class="n">🍮 Kheer<small>traditional rice pudding</small></span><span class="p">Rs. 200</span></div>
+      <div class="item"><span class="n">🍵 Kashmiri Chai<small>with almonds</small></span><span class="p">Rs. 180</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="about">
+  <div class="wrap">
+    <h2>About Us</h2>
+    <p>Three generations of cooking, one promise: real food, real taste. Every karahi is cooked fresh to order over open flame — no shortcuts, no pre-made gravy. Come hungry.</p>
+  </div>
+</div>
+
+<div class="cta wrap">
+  <h2>Hungry? Order in 1 minute</h2>
+  <p>Send us your order on WhatsApp — ready in 25 minutes.</p>
+  <a class="wa" href="https://wa.me/923001234567?text=Assalam-o-alaikum!%20Mujhe%20order%20karna%20hai%3A%20" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+</div>
+
+<div class="info wrap">
+  <div><b>📍 Location</b><span>Main Bazaar Road, Gulberg, Lahore</span></div>
+  <div><b>📞 Contact</b><span>0300 1234567</span></div>
+  <div><b>🛵 Delivery</b><span>Within 5 km · Rs. 100</span></div>
+</div>
+
+<footer>© 2026 Spice Garden · Website by FarazWeb</footer>
+
+</body>
+</html>

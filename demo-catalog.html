@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Karam Fabrics — WhatsApp Catalog | Order in 1 tap</title>
+<meta name="description" content="Al-Karam Fabrics wholesale catalog — lawn, silk, chiffon. Browse and order directly on WhatsApp.">
+<style>
+  :root{--plum:#2b0f22;--plum2:#4a1a38;--gold:#e8b4b8;--rose:#e5637f;--bg:#faf5f6;--ink:#241a1e;--muted:#8a767e;--wa:#25d366;--radius:14px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  .phone{max-width:480px;margin:0 auto;min-height:100vh;background:#fff;box-shadow:0 0 60px rgba(43,15,34,.12)}
+
+  .top{background:linear-gradient(135deg,var(--plum),var(--plum2));color:#fff;padding:26px 20px 22px}
+  .top .shop{font-size:1.35rem;font-weight:800}
+  .top .shop span{color:var(--gold)}
+  .top p{color:#d9bfc9;font-size:.85rem;margin-top:2px}
+  .top .search{margin-top:16px;display:flex;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;gap:8px}
+  .top .search input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:.95rem}
+  .top .search input::placeholder{color:#c9a8b4}
+  .banner{margin-top:14px;background:var(--rose);border-radius:10px;padding:10px 14px;font-size:.85rem;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+  .banner em{font-style:normal;background:#fff;color:var(--rose);padding:2px 10px;border-radius:999px;font-size:.75rem}
+
+  .tabs{display:flex;gap:8px;padding:16px 16px 6px;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{border:1.5px solid #ecdde2;background:#fff;color:var(--muted);padding:7px 16px;border-radius:999px;font-size:.85rem;font-weight:600;white-space:nowrap;cursor:pointer}
+  .tab.on{background:var(--plum);border-color:var(--plum);color:#fff}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 16px 90px}
+  .prod{border:1px solid #f0e3e7;border-radius:var(--radius);overflow:hidden;background:#fff}
+  .prod .img{height:120px;display:grid;place-items:center;font-size:2.6rem}
+  .prod .body{padding:10px 12px 12px}
+  .prod .cat{font-size:.68rem;color:var(--rose);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  .prod h3{font-size:.92rem;margin:2px 0 4px}
+  .prod .row{display:flex;justify-content:space-between;align-items:center}
+  .prod .price{font-weight:800;color:var(--ink)}
+  .prod .price small{font-weight:400;color:var(--muted);font-size:.7rem;display:block}
+  .prod .order{background:var(--wa);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit}
+  .prod .order:hover{filter:brightness(1.06)}
+
+  .bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:1px solid #f0e3e7;padding:10px 16px;display:flex;gap:10px}
+  .bar a{flex:1;text-align:center;text-decoration:none;padding:12px;border-radius:10px;font-weight:700;font-size:.9rem}
+  .bar .wa{background:var(--wa);color:#fff}
+  .bar .call{background:#fff;color:var(--plum);border:1.5px solid var(--plum)}
+  .cartN{background:var(--rose);color:#fff;border-radius:8px;padding:12px 6px;font-weight:700;font-size:.78rem;border:none;cursor:pointer;font-family:inherit}
+
+  .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+  footer{background:var(--plum);color:#c9a8b4;text-align:center;padding:16px;font-size:.75rem}
+
+  @media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:10px}}
+</style>
+</head>
+<body>
+
+<div class="phone">
+
+  <div class="top">
+    <div class="shop">Al-Karam <span>Fabrics</span></div>
+    <p>Wholesale & Retail · New collection daily</p>
+    <div class="search">🔍<input id="q" type="text" placeholder="Search fabric..." oninput="render()"></div>
+    <div class="banner"><span>🎁 Eid Sale — 15% off on 3-piece suits</span><em>CODE: EID15</em></div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="bar">
+    <a class="wa" href="https://wa.me/923001234567?text=Assalam-o-alaikum!%20Mujhe%20order%20karna%20hai" target="_blank" rel="noopener">💬 WhatsApp Order</a>
+    <a class="call" href="tel:03001234567">📞 Call</a>
+    <button class="cartN" id="cartBtn" onclick="sendCart()">Cart: 0</button>
+  </div>
+
+</div>
+
+<script>
+  const WA = "923001234567";
+  let cart = [];
+
+  const PRODUCTS = [
+    {id:1,  cat:"lawn",   name:"Embroidered Lawn 3-Piece", price:2850, old:3350, img:"🌼", bg:"#fdeef2"},
+    {id:2,  cat:"lawn",   name:"Printed Lawn Suit",        price:1950, old:0,    img:"🌸", bg:"#eef7fd"},
+    {id:3,  cat:"silk",   name:"Charmeuse Silk Fabric",    price:4200, old:0,    img:"✨", bg:"#f3eefd"},
+    {id:4,  cat:"chiffon",name:"Crinkle Chiffon (Dyeable)",price:1600, old:1900, img:"🪶", bg:"#fdf3e7"},
+    {id:5,  cat:"silk",   name:"Raw Silk — Premium",       price:3600, old:0,    img:"🎀", bg:"#e9f9f1"},
+    {id:6,  cat:"lawn",   name:"Jacquard Lawn 3-Piece",    price:3200, old:0,    img:"🌿", bg:"#fdeef2"},
+    {id:7,  cat:"cotton", name:"Boski Wash & Wear",        price:2400, old:2800, img:"🧵", bg:"#eef7fd"},
+    {id:8,  cat:"cotton", name:"Khaddar — Winter",         price:1450, old:0,    img:"🍂", bg:"#fdf3e7"},
+    {id:9,  cat:"chiffon",name:"Sequin Chiffon",           price:2950, old:0,    img:"🌟", bg:"#f3eefd"},
+    {id:10, cat:"cotton", name:"Cambric Print",            price:1250, old:1500, img:"🍃", bg:"#e9f9f1"}
+  ];
+
+  const CATS = [["all","All"],["lawn","Lawn"],["silk","Silk"],["chiffon","Chiffon"],["cotton","Cotton"]];
+  let active = "all";
+
+  function initTabs(){
+    document.getElementById("tabs").innerHTML = CATS.map(([k,l]) =>
+      `<button class="tab ${k===active?'on':''}" onclick="setCat('${k}')">${l}</button>`).join("");
+  }
+  function setCat(k){ active=k; initTabs(); render(); }
+
+  function render(){
+    const q = document.getElementById("q").value.toLowerCase();
+    const list = PRODUCTS.filter(p =>
+      (active==="all" || p.cat===active) && p.name.toLowerCase().includes(q));
+    document.getElementById("grid").innerHTML = list.length ? list.map(p => `
+      <div class="prod">
+        <div class="img" style="background:${p.bg}">${p.img}</div>
+        <div class="body">
+          <div class="cat">${p.cat}</div>
+          <h3>${p.name}</h3>
+          <div class="row">
+            <div class="price">Rs. ${p.price.toLocaleString()}${p.old?`<small><s>Rs. ${p.old.toLocaleString()}</s></small>`:""}</div>
+            <button class="order" onclick="add(${p.id})">+ Add</button>
+          </div>
+        </div>
+      </div>`).join("")
+      : `<div class="empty">😕 Kuch nahi mila — dobara try karein</div>`;
+  }
+
+  function add(id){
+    cart.push(PRODUCTS.find(p => p.id===id).name);
+    document.getElementById("cartBtn").textContent = "Cart: " + cart.length;
+  }
+
+  function sendCart(){
+    const lines = cart.map((n,i) => `${i+1}. ${n}`).join("\n");
+    const msg = cart.length
+      ? `Assalam-o-alaikum! Mujhe ye order karna hai:\n${lines}\n\nTotal items: ${cart.length}`
+      : "Assalam-o-alaikum! Mujhe order karne ke liye catalog dekh raha tha.";
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
+  }
+
+  initTabs(); render();
+</script>
+
+<footer>© 2026 Al-Karam Fabrics · Catalog by FarazWeb</footer>
+
+</body>
+</html>
